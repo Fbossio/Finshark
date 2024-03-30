@@ -11,8 +11,8 @@ using api.Data;
 
 namespace api.Migrations
 {
-    [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20231202125736_init")]
+    [DbContext(typeof(ApplicationDbContext))]
+    [Migration("20240330085658_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -37,9 +37,6 @@ namespace api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<int?>("StockId")
                         .HasColumnType("int");
 
@@ -51,7 +48,7 @@ namespace api.Migrations
 
                     b.HasIndex("StockId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comment");
                 });
 
             modelBuilder.Entity("api.Models.Stock", b =>
@@ -85,7 +82,7 @@ namespace api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Stocks");
+                    b.ToTable("Stock");
                 });
 
             modelBuilder.Entity("api.Models.Comment", b =>
